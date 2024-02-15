@@ -1,13 +1,14 @@
 import vendorJSON from "./__fixtures__/vendor.json";
 import menuJSON from "./__fixtures__/menu.json";
+import { VendorDataT, MenuDataT } from "./types";
 
 const getData = (target: string) => {
   try {
     switch (target) {
       case "vendor":
-        return vendorJSON;
+        return vendorJSON as VendorDataT[];
       case "menu":
-        return menuJSON;
+        return menuJSON as MenuDataT[];
       default:
         throw new Error("No data");
     }

@@ -2,7 +2,7 @@ import { RestRequest } from "msw";
 
 export type MethodT = "get" | "post" | "put" | "delete";
 
-type MenuDataT = {
+export type MenuDataT = {
   id: string;
   name: string;
   type: string;
@@ -16,7 +16,7 @@ type MenuDataT = {
   required?: number;
 };
 
-type VendorDataT = {
+export type VendorDataT = {
   id: string;
   name: string;
   address: string;
@@ -24,12 +24,13 @@ type VendorDataT = {
 };
 
 export type DataT =
-  | Record<string, Record<string, MenuDataT>>
+  | Record<string, MenuDataT>
   | Record<string, VendorDataT>
   | undefined;
 
-export type CallBackT = {
-  store1: DataT;
-};
+export type DataT2 = MenuDataT[] | VendorDataT[] | undefined;
 
-export type CallBackType = (req: RestRequest, data: DataT) => DataT;
+export type CallBackType = (
+  req: RestRequest,
+  data: DataT2,
+) => MenuDataT | VendorDataT | undefined;
