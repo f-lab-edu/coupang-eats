@@ -23,14 +23,9 @@ export type VendorDataT = {
   phoneNumber: string;
 };
 
-export type DataT =
-  | Record<string, MenuDataT>
-  | Record<string, VendorDataT>
-  | undefined;
-
-export type DataT2 = MenuDataT[] | VendorDataT[] | undefined;
+export type DataT = MenuDataT[] | VendorDataT[] | undefined;
 
 export type CallBackType = (
   req: RestRequest,
-  data: DataT2,
-) => MenuDataT | VendorDataT | undefined;
+  data: DataT,
+) => MenuDataT | VendorDataT | undefined | DataT;

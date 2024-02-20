@@ -1,8 +1,8 @@
 import vendorJSON from "./__fixtures__/vendor.json";
 import menuJSON from "./__fixtures__/menu.json";
-import { VendorDataT, MenuDataT } from "./types";
+import { MenuDataT, VendorDataT } from "./types";
 
-const getData = (target: string) => {
+const getData = (target: string): MenuDataT[] | VendorDataT[] | undefined => {
   try {
     switch (target) {
       case "vendor":
